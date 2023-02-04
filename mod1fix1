@@ -1,0 +1,113 @@
+#include <iostream>
+#include <string>
+#include <limits>
+
+using namespace std;
+
+int i,n;
+
+struct mahasiswa
+{
+    string nama;
+    string nim;
+    string email;
+}data[50];
+
+void inputanuser () {
+	system("cls");
+    int user;
+    cout << "==============================" << endl;
+    cout << "---- Input Data Mahasiswa ----" << endl;
+    cout << "==============================" << endl;
+    cout << "Jumlah Data : ";cin >> user;
+    cout << "" << endl;
+
+    for(i=0;i<user;i++){
+        cout << "Data Mahasiswa Ke - " << i+1 << endl;
+        cout << "Masukkan Nama : ";getline(cin >> ws, data[i].nama);
+        cout << "Masukkan NIM  : ";getline(cin >> ws, data[i].nim);
+        cout << "Email Aktif   : ";getline(cin >> ws, data[i].email);
+        cout << "" << endl;
+    }
+}
+
+void tampilkandata (){
+	system("cls");
+    int cetak;
+    cout << "==============================" << endl;
+    cout << "------- Data Mahasiswa -------" << endl;
+    cout << "==============================" << endl;
+    cout << "Jumlah Data Ditampilkan : ";cin >> cetak;
+    cin.ignore();
+    for (i=0;i<cetak;i++){
+    	cout << "" << endl;
+        cout << "Data Mahasiswa Ke - " << i+1 << endl;
+        cout << " " << endl;
+        cout << "Nama  : " << data[i].nama << endl;
+        cout << "NIM   : " << data[i].nim << endl;
+        cout << "Email : " << data[i].email << endl;
+        cout << "==============================" << endl;
+    }
+}
+
+void exit(){
+	system("cls");
+	cout << "TERIMAKASIH" << endl;
+} 
+
+int main () {
+    int x;
+    mainmenu:
+    while (x != 3){
+    	system("cls");
+        cout << "==============================" << endl;
+        cout << "|---- Data  Mahasiswa TI ----|" << endl;
+        cout << "==============================" << endl;
+        cout << "|            Menu            |" << endl;
+        cout << "|----------------------------|" << endl;
+        cout << "| 1. Tambah Data             |" << endl;
+        cout << "| 2. Tampilkan Data          |" << endl;
+        cout << "| 3. Keluar                  |" << endl;
+        cout << "==============================" << endl;
+        cout << "Pilih Menu : "; cin >> x;
+        if (x <= 1){
+        inputanuser ();
+            aa:
+		    cout << "\n1. Kembali ke menu utama \n2. keluar\n";
+            cout << "pilih : ";cin >> x;
+		      if (x==1){
+			    goto mainmenu;
+		        }
+		      else if(x==2){
+			    exit();
+		        }
+		      else
+		 	  goto aa;
+        }else if (x <= 2){
+            {
+                tampilkandata ();
+            bb:
+		    cout << "\n1. Kembali ke menu utama \n2. keluar\n";
+            cout << "pilih : ";cin >> x;
+		      if (x==1){
+			    goto mainmenu;
+		        }
+		      else if(x==2){
+			    exit();
+		        }
+		      else
+		 	  goto bb;
+                
+            }
+        }else{
+            {
+                exit();
+            }
+        }
+        return 0;
+
+    }
+
+
+}
+    //PUNYA 223010503020
